@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.library'
     id 'kotlin-android'
+    id 'maven-publish'
 }
 
 android {
@@ -36,6 +37,7 @@ dependencies {
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.4.0'
     implementation 'com.google.android.material:material:1.4.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.2'
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
@@ -56,4 +58,75 @@ dependencies {
     // okHttp
     implementation "com.squareup.okhttp3:okhttp:3.7.0"
     implementation "com.squareup.okhttp3:logging-interceptor:3.7.0"
+
+    implementation "com.jakewharton.timber:timber:4.6.1"
+
+    // dagger
+    implementation "org.glassfish:javax.annotation:10.0-b28"
+    implementation "com.google.dagger:dagger:2.25.4"
+    annotationProcessor "com.google.dagger:dagger-compiler:2.25.4"
+    implementation "com.google.dagger:dagger-android-support:2.25.4"
+    annotationProcessor "com.google.dagger:dagger-android-processor:2.25.4"
+
+    // remember
+    implementation 'com.tumblr:remember:1.0.0@aar'
+
+    // mvp
+    implementation "com.hannesdorfmann.mosby3:mvp:3.1.1"
+    implementation "com.hannesdorfmann.mosby3:mvp-lce:3.1.1"
+
+    // Room dependencies
+    implementation "android.arch.persistence.room:runtime:1.1.1"
+    annotationProcessor "android.arch.persistence.room:compiler:1.1.1"
+
+    // stetho
+    implementation "com.facebook.stetho:stetho:1.5.1"
+    implementation "com.facebook.stetho:stetho-okhttp3:1.5.1"
+
 }
+
+/*
+task deleteJar(type: Delete) {
+    delete 'build/outputs/APILibrary.jar'
+}
+
+task createJar(type: Copy) {
+    from('build/intermediates/packaged-classes/release/')
+    into('build/outputs/')
+    include('classes.jar')
+    rename('classes.jar', 'APILibrary.jar')
+}
+
+createJar.dependsOn(deleteJar, build)*/
+
+/*
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId 'com.example' //You can either define these here or get them from project conf elsewhere
+            artifactId 'apilibrary'
+            version '0.0.1-SNAPSHOT'
+            artifact "$buildDir/outputs/aar/APILibrary-debug.aar" //aar artifact you want to publish
+
+            //generate pom nodes for dependencies
+            pom.withXml {
+                def dependenciesNode = asNode().appendNode('dependencies')
+                configurations.implementation.allDependencies.each { dependency ->
+                    if (dependency instanceof ModuleDependency) {
+                        def dependencyNode = dependenciesNode.appendNode('dependency')
+                        dependencyNode.appendNode('groupId', dependency.group)
+                        dependencyNode.appendNode('artifactId', dependency.name)
+                        dependencyNode.appendNode('version', dependency.version)
+                    }
+                }
+            }
+        }
+    }
+
+    //publish to filesystem repo
+    repositories{
+        maven {
+            url "$buildDir/repo"
+        }
+    }
+}*/

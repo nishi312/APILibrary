@@ -1,4 +1,4 @@
-package com.apilibrary.demo;
+package com.apilibrary.demo.data.api.models.nationalities;
 
 import com.google.gson.annotations.SerializedName;
 

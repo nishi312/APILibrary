@@ -1,4 +1,7 @@
-package com.apilibrary.demo;
+package com.apilibrary.demo.data.api.models.nationalities;
+
+
+import com.apilibrary.demo.data.api.models.BaseResponse;
 
 public class NationalityResponse extends BaseResponse {
     private NationalityList data;

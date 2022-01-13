@@ -1,0 +1,9 @@
+<resources>
+    <string name="networkError">Please check your internet connection and retry !</string>
+    <string name="connectionError">Can\'t connect to the servers</string>
+    <string name="timeoutError">Server is taking too long to respond.\nPlease try again</string>
+    <string name="serverError">Something went wrong on the server side !</string>
+    <string name="unauthenticatedError">Your session has expired. Please login again.</string>
+    <string name="txt_ok">OK</string>
+    <string name="session_expired">Session Expired</string>
+</resources>

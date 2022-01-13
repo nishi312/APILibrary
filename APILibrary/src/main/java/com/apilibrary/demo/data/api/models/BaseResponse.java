@@ -1,4 +1,4 @@
-package com.apilibrary.demo;
+package com.apilibrary.demo.data.api.models;
 
 import java.io.Serializable;
 

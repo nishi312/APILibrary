@@ -1,10 +1,13 @@
-package com.apilibrary.demo;
+package com.apilibrary.demo.data.api.models.nationalities;
 
 import android.os.Parcel;
 import android.os.Parcelable;
 
 import com.google.gson.annotations.SerializedName;
 
+import javax.annotation.Generated;
+
+@Generated("com.robohorse.robopojogenerator")
 public class NationalitiesItem implements Parcelable {
 
     @SerializedName("name_ar")
@@ -18,25 +21,6 @@ public class NationalitiesItem implements Parcelable {
 
     @SerializedName("name_en")
     private String nameEn;
-
-    protected NationalitiesItem(Parcel in) {
-        nameAr = in.readString();
-        nationalityId = in.readString();
-        threeDigitIso = in.readString();
-        nameEn = in.readString();
-    }
-
-    public static final Creator<NationalitiesItem> CREATOR = new Creator<NationalitiesItem>() {
-        @Override
-        public NationalitiesItem createFromParcel(Parcel in) {
-            return new NationalitiesItem(in);
-        }
-
-        @Override
-        public NationalitiesItem[] newArray(int size) {
-            return new NationalitiesItem[size];
-        }
-    };
 
     public String getCountryName() {
         return getNameEn();
@@ -92,9 +76,6 @@ public class NationalitiesItem implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(nameAr);
-        dest.writeString(nationalityId);
-        dest.writeString(threeDigitIso);
-        dest.writeString(nameEn);
+
     }
 }
